@@ -17,3 +17,24 @@ Mi proyecto se basa en un sistema para clasificar distintos tipos de mercancías
 Al final se accesa a la calaoficación con una lista predeterminada de variables que te arrojan datos dependiendo de su inportancia). 
 (Calculadora con 
 (En conclusión se basa en una red de lista predefinida con variables que arrojan resultados dependiendo de su clasificación dada con inputs del usuario).(resultado de consulta).
+peso_maximo = 5.75
+peso_minimo = 0.5
+limite_altura = 0.75
+
+lista = ["electrodomesticos", "dispositivos electronicos", "dispositivos medicos"]
+
+def clasificar_mercancia(peso, altura, tipo_mercancia):
+    if peso > peso_maximo or peso < peso_minimo or altura > limite_altura:
+        return "No cumple con los parámetros"
+    elif tipo_mercancia in lista:
+        return "Clasificable"
+    else:
+        return "No clasificable"
+
+peso = float(input("Introduce el peso del objeto en kilogramos: "))
+altura = float(input("Introduce la altura del objeto en metros: "))
+tipo_mercancia = input("Introduce el tipo de mercancía: ").lower()
+
+resultado = clasificar_mercancia(peso, altura, tipo_mercancia)
+
+print(resultado)
