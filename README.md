@@ -18,4 +18,4 @@ Al final se accesa a la calaoficación con una lista predeterminada de variables
 (Calculadora con 
 (En conclusión se basa en una red de lista predefinida con variables que arrojan resultados dependiendo de su clasificación dada con inputs del usuario).(resultado de consulta).
 
-SEGUNDO AVANCE-Para el segundo avance se cambió el proyecto, se trata de hacer una lista de contabilidad de productos de manera mensual, se trabajó para hacer una serie de artículos en una empresa (agenda de costos de una empresa), de igual manera se hace display de lo que se gasta de manera mensual.
+CAMBIO DE PROYECTO-Para el segundo avance se cambió el proyecto, se trata de hacer una lista de contabilidad de productos de manera mensual, se trabajó para hacer una serie de artículos en una empresa (agenda de costos de una empresa), de igual manera se hace display de lo que se gasta de manera mensual.
