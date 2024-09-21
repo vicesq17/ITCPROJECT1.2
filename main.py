@@ -1,33 +1,4 @@
-#Lista que define el costo mensual de clasificaciones
 
-
-
-def menu_categorias():
-    print("1. Farmacia")
-    print("2. Electrodomesticos")
-    print("3. insumos")
-    print("4. Servicios")
-    print("5. Entretenimiento")
-    
-    
-def menu_farmacia():
-    print("1. Medicina $470")
-    print("2. vacuna $576")
-    print("3. Vendaje $787")
-    print("4. Suero $420")
-    print("5. Limpieza $210")
-
-def prod_farm(producto):
-    if producto == 1:
-        gasto = gasto + 470
-    elif producto == 2:
-        gasto = gasto + 576
-    elif producto == 3:
-        gasto = gasto + 787
-    elif producto == 4:
-        gasto = gasto + 420
-    elif producto == 5:
-        gasto = gasto + 210
     
     return gasto
 
