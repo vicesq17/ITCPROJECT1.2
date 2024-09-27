@@ -1,3 +1,8 @@
+lista3 = []
+def guardar_cosas(producto):
+    lista.append(producto)
+    
+
 def menus(opcion):
     if opcion == 1:
         menu_farmacia = ["1-Medicina $570","2-Vendaje $440","3-Vacuna $735", "4-Suero $420" , "5-Cuidado personal $377"]
@@ -14,7 +19,7 @@ def menus(opcion):
     elif opcion > 3 or opcion < 1:
         return "Esa categoria no existe"
     
-def valor_pruducto(producto): 
+def valor_pruducto_1(producto): 
     if producto == 1:
         return 570
     elif producto == 2:
@@ -60,7 +65,7 @@ while seguir_comprando:
     menus(opcion_del_menu)
 
     producto_escogido = int(input())
-    valor = valor_pruducto(producto_escogido)
+    valor = valor_pruducto_1(producto_escogido)
 
     if valor > 0:
         total_compra = total_compra + valor
@@ -76,5 +81,4 @@ while seguir_comprando:
         seguir_comprando = False
 
 print("El total de tu gasto este mes fue de: $",(total_compra))
-
 
