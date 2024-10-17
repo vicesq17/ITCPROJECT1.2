@@ -1,167 +1,132 @@
+
+#PROYECTO PYTHON
 """
 PROYECTO PYTHON
 Simulador de compras en un supermercado
 El usuario pondrá los objetos que compro y el programa le dira el total de
-su compra y su historial de compra
+su compra y su historial de compra.
 
 """
 
-"""
-=================== Listas ===================================
 
 """
-
-# Lista de productos
-productos = [
-    [1, "Medicina", 570, "Farmacia"],
-    [2, "Vendaje", 440, "Farmacia"],
-    [3, "Vacuna", 735, "Farmacia"],
-    [4, "Suero", 420, "Farmacia"],
-    [5, "Cuidado personal", 377, "Farmacia"],
-    [6, "Microondas", 2300, "Electrodomésticos"],
-    [7, "Televisores", 1400, "Electrodomésticos"],
-    [8, "Refrigeradores", 3400, "Electrodomésticos"],
-    [9, "Computadoras", 5700, "Electrodomésticos"],
-    [10, "Artículos de baño", 3700, "Insumos"],
-    [11, "Artículos de limpieza", 3100, "Insumos"],
-    [12, "Alimentos", 5500, "Insumos"],
-    [13, "Artículos de oficina", 2500, "Insumos"]
-]
-
-# Lista de compras
-lista_de_compras = {"Farmacia": [], "Electrodomésticos": [], "Insumos": []}
-
+================== Funciones auxiliares =================
 """
 
-====================== Funciones de apoyo ========================
-
-"""
-
-def mostrar_menu(categoria):
+#(uso de funciones y parámetros)
+def menus(opcion):
+    """
+    La función recibe el parámetro "opción", el cual es un integer; luego define
+    con una serie de condiciones la categoría a la que corresponde el número ingresado
+    y devuelve la lista de artículos correspondiente a esa categoría.
     
     """
-        (uso de ciclos for, condicionales, listas)
-        Recibe: La categoría escogida (string)por el usuario del producto 
-        que compro
-        Imprime la lista de productos por categoría y crea una lista con los 
-        numeros de los productos que pertenecen a dicha categoria
-        Devuelve: Lista con los números por categoría
+    if opcion == 1:
+        for i in menu_farmacia:
+            print (i) 
+    elif opcion == 2:
+        for i in menu_electrodomesticos:
+            print(i)
+    elif opcion == 3:
+        for i in menu_insumos:
+            print(i)
+ #(uso de estructuras de decisión y listas)   
+def valor_pruducto_1(producto):
     """
-    
-    print("\nProductos en", categoria, ":")
-    productos_categoria = []
-    for prod in productos:
-        if prod[3] == categoria:
-            print(prod[0], "-", prod[1], ": $", prod[2])
-            productos_categoria.append(prod[0])  # Almacenar los ids(números)
-    return productos_categoria
-
-# Función para obtener el valor del producto
-def obtener_valor_producto(producto_id):
+    La función recibe una variable que se llama "producto",siendo un número entero y es
+    usado para agregar a la variable lista de compras, la categoría correspondiente al
+    número elegido y devuelve el precio del producto elegido.
     
     """
-        (uso de condicionales y listas)
-        Recibe: Número correspondiente al producto en la lista principal
-        Compara el número o ID del producto en la lista, si lo encuentra, 
-        devuelve su precio, si no, devuelve un 0
-        devuelve: Precio del producto de la lista
-    """
+    if producto == 1:
+        lista_de_compras[0].append("Medicina")
+        return 570
+    elif producto == 2:
+        lista_de_compras[0].append("Medicina")
+        return  440
+    elif producto == 3:
+        lista_de_compras[0].append("Medicina")
+        return  735
+    elif producto == 4:
+        lista_de_compras[0].append("Medicina")
+        return  420
+    elif producto == 5:
+        lista_de_compras[0].append("Medicina")
+        return  377
+    elif producto == 6:
+        lista_de_compras[1].append("Electrodomesticos")
+        return  2300
+    elif producto == 7:
+        lista_de_compras[1].append("Electrodomesticos")
+        return  1400
+    elif producto == 8:
+        lista_de_compras[1].append("Electrodomesticos")
+        return  3400
+    elif producto == 9:
+        lista_de_compras[1].append("Electrodomesticos")
+        return  5700
+    elif producto == 10:
+        lista_de_compras[2].append("Insumos")
+        return  3700
+    elif producto == 11:
+        lista_de_compras[2].append("Insumos")
+        return  3100
+    elif producto == 12:
+        lista_de_compras[2].append("Insumos")
+        return  5500
+    elif producto == 13:
+        lista_de_compras[2].append("Insumos")
+        return  2500
+    else:
+        return 0
     
-    for prod in productos:
-        if prod[0] == producto_id:
-            lista_de_compras[prod[3]].append(prod[1])  # Agregar el producto 
-            return prod[2]  # Devolver el valor del producto
-    return 0  # Si no se encuentra, devolver 0
-
-# Función para validar entrada
-def validar_entrada(mensaje, opciones):
-    
-    """
-        (uso de ciclos, operadores y variables)
-        Recibe: El mensaje para saber que numero debe introducir el usuario y 
-        la lista de numeros validos para poner en esa entrada
-        Valida que los numeros introducidos por el usuario correspondan
-        a dicha entrada y no se conbinen los productos con las categorias
-        Devuelve: El valor numérico que introdujo el usuario
-    """
-   
-    entrada = input(mensaje)  # Solicitar entrada
-    while not (entrada.isnumeric() and int(entrada) in opciones):  
-        print("Inválido. Escoge entre", min(opciones),"y", max(opciones), ".")
-        entrada = input(mensaje)  # Pedir nueva entrada si no es válida
-    return int(entrada)
+"""
+================================ Programa principal =========================
+Crea la lista de compras y maneja los pasos correspondientes a mostrar al usuario
+las categorías y productos de su elección, posteriormente pidiendo al usuario que eliga
+los productos disponibles, mandando a llamar las funciones auxiliares con los datos que
+proporciona el usuario para realizar el procesamiento de datos en base a cada opción;
+finalmente calcula el precio total correspondiente de los productos elegidos y finalmente
+muestra al usuario ese total en conjunto con las categorías previamente seleccionadas.
 
 """
 
-======================== Funciones principales =========================
-
-"""
-
-# Función que contiene el ciclo de compras
-def realizar_compras():
-    
-    """
-        (uso de ciclos y condicionales anidados)
-        Recibe: No recibe parámetros
-        La función inicia el ciclo de compras del usuario, este irá poniendo
-        los valores que se adecúen a sus compras, dependiendo de la categoría
-        y el producto. De igual forma, cabe mencionar que aquí se hacen las 
-        llamadas a las funciones anteriores
-        Devuelve: El total de compra del usuario
-    """
-
-    total_compra = 0
-    seguir_comprando = True
-
-    while seguir_comprando:
-        print("\nCategorías:\n1 -Farmacia\n2 -Electrodomésticos\n3 - Insumos")
-        opcion_categoria = validar_entrada("Elige entre (1-3): ", range(1, 4))
-
-        if opcion_categoria == 1:
-            productos_validos = mostrar_menu("Farmacia")
-        elif opcion_categoria == 2:
-            productos_validos = mostrar_menu("Electrodomésticos")
-        elif opcion_categoria == 3:
-            productos_validos = mostrar_menu("Insumos")
-
-        # Selección del producto y cálculo del total
-        escogido = validar_entrada("Producto comprado: ", productos_validos)
-        valor = obtener_valor_producto(escogido)
-
-        if valor > 0:
-            total_compra += valor
-            print("Agregaste un producto de $", valor)
-            print("Total acumulado: $", total_compra)
+lista_de_compras = [[],[],[]]
+menu_farmacia = ["1-Medicina $570","2-Vendaje $440","3-Vacuna $735", "4-Suero $420" , "5-Cuidado personal $377"]
+menu_electrodomesticos = ["6-Microondas $2300", "7-Televisores $1400", "8-Refrigeradores $3400", "9-Computadoras $5700"]
+menu_insumos = ["10-Articulos de baño $3700", "11-Articulos de Limpieza $3100", "12-Alimentos $5500", "13-Articulos de oficina $2500"]
+total_compra = 0
+seguir_comprando = True
+print("Bienvenido, vamos a ver cuanto gastaste este mes:")
+#(uso de ciclos)
+while seguir_comprando:
+    print("¿Qué categoría fue tu producto?")
+    categorias = ["1-Farmacia", "2-Aparatos electronicos", "3-Insumos"]
+    for categoria in categorias:
+        print(categoria)
+    opcion_del_categoria = int(input())
+    while True:
+        if opcion_del_categoria < 1 or opcion_del_categoria > 3:
+            opcion_del_categoria=int(input("Opción invalida, intenta de nuevo: "))
         else:
-            print("Producto no válido.")
-
-        # Preguntar si quiere seguir comprando
-        decision = validar_entrada("¿Seguir comprando? (1-SI,2-NO): ", [1, 2])
-        if decision == 2:
-            seguir_comprando = False
-
-    return total_compra
-
-def programa_principal():
+            break
+    print("¿Qué producto compraste?")
+    menus(opcion_del_categoria)
+    producto_escogido = int(input())
+    valor = valor_pruducto_1(producto_escogido)
+    if valor > 0:
+        #(uso de operadores)
+        print("Agregaste un producto con valor de $",(valor))
+        print("Total acumulado: $",(total_compra))
+    else:
+        print("Producto no válido")
+    print("¿Fue todo lo que compraste? (1-SÍ, 2-NO)")
+    decision = int(input())
     
-    """
-        (uso de ciclos for)
-        Recibe: No recibe parámetros
-        Aquí se ejecuta el programa principal, se manda a llamar a la función 
-        anterior para que este haga los llamados pertinenetes para obtener
-        todos los resultados
-        No tiene regresos
-    """
-    
-    print("Bienvenido, vamos a ver cuánto gastaste este mes:")
-    total = realizar_compras()
-
-    # Mostrar el resumen de la compra
-    print("\nEl total de tu gasto este mes fue: $", total)
-    print("Resumen de tu compra:")
-    for categoria, items in lista_de_compras.items():
-        if items:
-            print(categoria, ":", ", ".join(items))
-
-# Ejecutar el programa principal
-programa_principal()
+    if decision == 1:
+        seguir_comprando = False
+print("El total de tu gasto este mes fue de: $",(total_compra))
+#(uso de ciclos anidados y listas anidadas)
+for art in lista_de_compras:
+    for articulos in art:
+        print(articulos)
