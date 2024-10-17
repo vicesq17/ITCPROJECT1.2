@@ -1,0 +1,9 @@
+#correcciones
+Primera corrección: 
+Implementación de operaciones para generar el total a pagar por el usuario con respecto a los productos que iba eligiendo.
+
+Segunda corrección:
+Se implementó un ciclo para que cuando el usuario quiera continuar, se repita el proceso de preguntarle el tipo de producto que quería comprar dentro de las categorías y los productos dentro de las subcategorías.
+
+Tercera corrección:
+Se eliminaron las funciones y líneas de código que no eran relevantes, así como optimizar los ciclos que no hacían nada. Eliminé la función “main” y arreglé las condicionales con respecto a las estructuras de decisión que no servían.
